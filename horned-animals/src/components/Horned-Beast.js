@@ -10,9 +10,14 @@ class Hornedbeast extends React.Component {
     constructor() {
         super()
         this.state = {
-            numOfVotes: 0
+            numOfVotes: 0,
+            heart: '❤️'
+            
         }
     }
+
+     
+    
 
     gotVoted = () => {
         this.setState({
@@ -29,7 +34,7 @@ class Hornedbeast extends React.Component {
                         <Card.Title>{this.props.title}</Card.Title>
                         <Card.Text>
                          {this.props.description}
-                         <h4>❤️ : {this.state.numOfVotes}</h4>
+                         <h4>{this.state.heart.repeat(this.state.numOfVotes)} : {this.state.numOfVotes}</h4>
                         </Card.Text>     
                         {/* <Button variant="primary">Go somewhere</Button>                    */}
                     </Card.Body>
