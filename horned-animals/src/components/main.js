@@ -1,15 +1,16 @@
 import React from 'react';
-import cardData from '../assets/data.json';
 import Hornedbeast from './Horned-Beast';
 
 class Main extends React.Component {
     render() {
 
-        let allCardArr = cardData.map(element => {
+        let allCardArr = this.props.cardsBeasts.map(element => {
             return (<Hornedbeast
-            title =  {element.title}
-            imgUrl = {element.image_url}
-            description = {element.description} 
+                takeData={this.props.takeData}
+                title={element.title}
+                imgUrl={element.image_url}
+                description={element.description}
+                handleClose={this.props.handleClose}
             />
             )
 
