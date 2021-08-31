@@ -7,8 +7,8 @@ import Button from 'react-bootstrap/Button'
 
 class Hornedbeast extends React.Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             numOfVotes: 0,
             heart: '❤️'
@@ -22,8 +22,11 @@ class Hornedbeast extends React.Component {
     gotVoted = () => {
         this.setState({
             numOfVotes: this.state.numOfVotes + 1
-        })
-    }
+        });
+        this.props.handleClose();
+        this.props.takeData(this.props.title)
+    };
+
     render() {
         return (
             <div style={{display : 'inline-block' }} >
