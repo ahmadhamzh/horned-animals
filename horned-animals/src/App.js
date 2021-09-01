@@ -15,6 +15,8 @@ class App extends React.Component {
       selctedImg : {}     
     }
   }
+
+  
   takeData = (title) =>{
 
     // let filteredData = cardData.find(elem => {

@@ -1,10 +1,35 @@
 import React from 'react';
 import Hornedbeast from './Horned-Beast';
+import Search from './searchForm';
 
 class Main extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            displayedImg: this.props.cardsBeasts,
+        }
+    }
+
+    filteredImg = (cornValue) => {
+        if (cornValue === 'all') {
+            this.setState({
+                displayedImg: this.props.cardsBeasts
+
+            });
+        } else {
+            let newArrOfBeast = this.props.cardsBeasts.filter(element => { return (JSON.stringify(element.horns) === cornValue) })
+            this.setState({
+                displayedImg: newArrOfBeast,
+
+            })
+        }
+    }
+
+
+
     render() {
 
-        let allCardArr = this.props.cardsBeasts.map(element => {
+        let allCardArr = this.state.displayedImg.map((element) => {
             return (<Hornedbeast
                 takeData={this.props.takeData}
                 title={element.title}
@@ -12,15 +37,19 @@ class Main extends React.Component {
                 description={element.description}
                 handleClose={this.props.handleClose}
             />
-            )
+            );
 
         });
         return (
             <div>
+                <Search
+                    filteredImg={this.filteredImg}
+                />
                 {allCardArr}
             </div>
-        )
-    }
-};
+        );
+    };
 
+
+};
 export default Main;
