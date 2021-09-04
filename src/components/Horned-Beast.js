@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 
+let votesNumArr = []
 
 class Hornedbeast extends React.Component {
 
@@ -11,9 +12,12 @@ class Hornedbeast extends React.Component {
         super(props)
         this.state = {
             numOfVotes: 0,
-            heart: '❤️'
+            
             
         }
+    }
+    votes = () => {
+        votesNumArr.push('a')
     }
 
      
@@ -36,8 +40,10 @@ class Hornedbeast extends React.Component {
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
                         <Card.Text>
-                         {this.props.description}
-                         <h4>{this.state.heart.repeat(this.state.numOfVotes)} : {this.state.numOfVotes}</h4>
+                         {this.props.description}   
+                        </Card.Text>     
+                        <Card.Text>
+                          ❤️ : {this.state.numOfVotes}
                         </Card.Text>     
                         {/* <Button variant="primary">Go somewhere</Button>                    */}
                     </Card.Body>
