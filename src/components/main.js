@@ -7,10 +7,11 @@ class Main extends React.Component {
         super(props)
         this.state = {
             displayedImg: this.props.cardsBeasts,
+            
         }
     }
-
     filteredImg = (cornValue) => {
+        
         if (cornValue === 'all') {
             this.setState({
                 displayedImg: this.props.cardsBeasts
@@ -22,12 +23,15 @@ class Main extends React.Component {
                 displayedImg: newArrOfBeast,
 
             })
+            console.log(newArrOfBeast);
         }
     }
 
-
-
+    
+    
+    
     render() {
+        console.log('numofvotes in main.js= '+ this.state.numOfVotes);
 
         let allCardArr = this.state.displayedImg.map((element) => {
             return (<Hornedbeast
@@ -36,6 +40,7 @@ class Main extends React.Component {
                 imgUrl={element.image_url}
                 description={element.description}
                 handleClose={this.props.handleClose}
+                numOfVotes ={this.props.numOfVotes} 
             />
             );
 

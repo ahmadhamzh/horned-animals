@@ -12,7 +12,8 @@ class App extends React.Component {
     this.state={
       show : false,
       title: '',
-      selctedImg : {}     
+      selctedImg : {},
+      numOfVotes: 0,    
     }
   }
 
@@ -32,10 +33,12 @@ class App extends React.Component {
       
     })
     console.log(filteredData);
+    console.log('numofvotes in app.js= '+ this.state.numOfVotes);
     // ------------------------------------
     this.setState({
       selctedImg: filteredData[0],
       title: title,
+      numOfVotes : this.state.numOfVotes +1
 
     })
   }
@@ -60,7 +63,8 @@ class App extends React.Component {
         <Main 
         takeData = {this.takeData}
         cardsBeasts = {cardData}
-        handleClose = {this.handleClose} />
+        handleClose = {this.handleClose}
+        numOfVotes ={this.state.numOfVotes} />
         <Footer />
       </div>
     )
